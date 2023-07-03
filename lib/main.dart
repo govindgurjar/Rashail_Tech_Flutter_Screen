@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rashail_tech_ui/Screens/fifth_screen.dart';
 import 'package:rashail_tech_ui/Screens/sencond_screen.dart';
 import 'package:rashail_tech_ui/Screens/sixth_screen.dart';
 import 'package:rashail_tech_ui/Screens/third_screen.dart';
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SixthScreen(),
+      home: FifthScreen(),
     );
   }
 }

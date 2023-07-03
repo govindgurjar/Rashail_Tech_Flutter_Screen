@@ -13,135 +13,155 @@ class _SixthScreenState extends State<SixthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(32),
-                bottomRight: Radius.circular(32),
-                topLeft: Radius.circular(32),
-                topRight: Radius.circular(32)),
-          ),
-          height: 150,
-          width: 420,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 70,
+      body: Stack(
+        children: [
+          Positioned.fill(
+              child: Image.asset(
+            'images/background.png',
+            fit: BoxFit.cover,
+          )),
+          Column(children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(32),
+                  bottomRight: Radius.circular(32),
                 ),
-                Row(
+              ),
+              height: 150,
+              width: 420,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.grey.shade700,
-                      child: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.arrow_back)),
+                    const SizedBox(
+                      height: 70,
                     ),
-                    SizedBox(
-                      width: 70,
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.black.withOpacity(0.5),
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.arrow_back)),
+                        ),
+                        const SizedBox(
+                          width: 70,
+                        ),
+                        const Text(
+                          'My Profile',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24),
+                        )
+                      ],
                     ),
-                    Text(
-                      'My Profile',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24),
-                    )
                   ],
                 ),
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(22.0),
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.grey.shade800,
-                borderRadius: BorderRadius.circular(32)),
-            height: 120,
-            width: 420,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage('images/profile.jpg'),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Govind Gurjar',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Space adventurer',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 120,
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.edit_outlined,
-                        color: Colors.white,
-                      ))
-                ],
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(22.0),
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.grey.shade800,
-                borderRadius: BorderRadius.circular(32)),
-            height: 530,
-            width: 420,
-            child: Column(children: [
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Row(
-                  children: [
-                    CupertinoSwitch(
-                      value: isSwitched,
-                      onChanged: (value) {
-                        setState(() {
-                          isSwitched = value;
-                          print(isSwitched);
-                        });
-                      },
-                      activeColor: Colors.cyan,
-                    ),
-                    Text(
-                      'Show planetary progress',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+            Padding(
+              padding: const EdgeInsets.all(22.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(32)),
+                height: 120,
+                width: 420,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage('images/profile.jpg'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Govind Gurjar',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Space adventurer',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.edit_outlined,
+                            color: Colors.white,
+                          ))
+                    ],
+                  ),
                 ),
-              )
-            ]),
-          ),
-        )
-      ]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(22.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(32)),
+                height: 450,
+                width: 420,
+                child: Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Row(
+                      children: [
+                        CupertinoSwitch(
+                          value: isSwitched,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched = value;
+                              print(isSwitched);
+                            });
+                          },
+                          activeColor: Colors.cyan,
+                        ),
+                        const Text(
+                          'Show planetary progress',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Checkbox(
+                    value: true,
+                    onChanged: (value) {},
+                  ),
+                  Checkbox(
+                    value: true,
+                    onChanged: (value) {},
+                  )
+                ]),
+              ),
+            )
+          ]),
+        ],
+      ),
     );
   }
 }

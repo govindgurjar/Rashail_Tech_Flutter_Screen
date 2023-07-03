@@ -25,37 +25,45 @@ class _ThirdScreenState extends State<ThirdScreen> {
               width: 420,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.grey.shade600,
-                      child:
-                          IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+                    SizedBox(
+                      height: 60,
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Milky Way',
-                          style: TextStyle(color: Colors.white, fontSize: 10),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey.shade600,
+                          child: IconButton(
+                              onPressed: () {}, icon: Icon(Icons.menu)),
                         ),
-                        Text(
-                          'Solar System',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Milky Way',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 10),
+                            ),
+                            Text(
+                              'Solar System',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24),
+                            )
+                          ],
+                        ),
+                        CircleAvatar(
+                          backgroundColor: Colors.grey.shade600,
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.person_2_outlined)),
                         )
                       ],
                     ),
-                    CircleAvatar(
-                      backgroundColor: Colors.grey.shade600,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.person_2_outlined)),
-                    )
                   ],
                 ),
               ),
