@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rashail_tech_ui/Screens/third_screen.dart';
 
 class SixthScreen extends StatefulWidget {
   const SixthScreen({super.key});
@@ -10,6 +11,8 @@ class SixthScreen extends StatefulWidget {
 
 class _SixthScreenState extends State<SixthScreen> {
   bool isSwitched = false;
+  bool showPlanetary = true;
+  bool notification = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +46,13 @@ class _SixthScreenState extends State<SixthScreen> {
                         CircleAvatar(
                           backgroundColor: Colors.black.withOpacity(0.5),
                           child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ThirdScreen(),
+                                    ));
+                              },
                               icon: const Icon(Icons.arrow_back)),
                         ),
                         const SizedBox(
@@ -148,13 +157,105 @@ class _SixthScreenState extends State<SixthScreen> {
                       ],
                     ),
                   ),
-                  Checkbox(
-                    value: true,
-                    onChanged: (value) {},
+                  Container(
+                    height: 220,
+                    width: 220,
+                    child: Stack(
+                      children: [
+                        const Positioned.fill(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Personal\nprogress',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24),
+                              ),
+                              Text(
+                                '87.1%',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 65),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned.fill(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 18,
+                            backgroundColor: Colors.grey.shade800,
+                            color: Colors.cyan,
+                            value: 0.87,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  Checkbox(
-                    value: true,
-                    onChanged: (value) {},
+
+                  // CircleAvatar(
+                  //   backgroundColor: Colors.cyan,
+                  //   radius: 100,
+                  //   child: CircleAvatar(
+                  //     backgroundColor: Colors.black.withOpacity(0.5),
+                  //     radius: 85,
+                  //     child: const Column(
+                  //       children: [
+                  //         SizedBox(height: 20),
+                  // Text(
+                  //   'Personal\nprogress',
+                  //   style: TextStyle(
+                  //       color: Colors.white,
+                  // fontWeight: FontWeight.bold,
+                  // fontSize: 18),
+                  // ),
+                  //         SizedBox(height: 20),
+                  //         Text(
+                  //           '87.1%',
+                  //           style: TextStyle(
+                  //               color: Colors.cyan,
+                  //               fontWeight: FontWeight.bold,
+                  //               fontSize: 40),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(height: 30),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: showPlanetary,
+                        onChanged: (value) {
+                          setState(() {
+                            showPlanetary = value!;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Show me in Planet Rating',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: notification,
+                        onChanged: (value) {
+                          setState(() {
+                            notification = value!;
+                          });
+                        },
+                      ),
+                      const Text(
+                        'Notifications',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
                   )
                 ]),
               ),
