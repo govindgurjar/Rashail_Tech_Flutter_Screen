@@ -77,7 +77,26 @@ class _FifthScreenState extends State<FifthScreen> {
               Container(
                 margin: const EdgeInsets.only(top: 14),
                 child: const Column(
-                  children: [FavCard(), FavCard()],
+                  children: [
+                    FavCard(
+                      description:
+                          'Create an account or log into Facebook. Connect with friends, family and other people you know. Share photos and videos, send messages and get updates.',
+                      imageUrl: '',
+                      title: 'Venus',
+                    ),
+                    FavCard(
+                      description:
+                          'Create an account or log into Facebook. Connect with friends, family and other people you know. Share photos and videos, send messages and get updates.',
+                      imageUrl: '',
+                      title: 'Sun',
+                    ),
+                    FavCard(
+                      description:
+                          'Create an account or log into Facebook. Connect with friends, family and other people you know. Share photos and videos, send messages and get updates.',
+                      imageUrl: '',
+                      title: 'Jupiter',
+                    ),
+                  ],
                 ),
               )
               // FavCard(),
@@ -92,80 +111,92 @@ class _FifthScreenState extends State<FifthScreen> {
 class FavCard extends StatelessWidget {
   const FavCard({
     super.key,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
   });
+  final String title;
+  final String description;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.5),
-          borderRadius: BorderRadius.circular(22)),
-      height: 220,
+        color: Colors.black.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(28),
+      ),
+      // height: 220,
       // width: 420,
+
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  radius: 35,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CircleAvatar(radius: 35),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Mars',
+                          title,
                           style: TextStyle(
                               color: Colors.lightBlue.shade300,
                               fontWeight: FontWeight.bold),
                         ),
                         IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.favorite_outline_outlined))
+                          padding: EdgeInsets.zero,
+                          constraints: BoxConstraints(),
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.favorite_outline_outlined,
+                            color: Colors.white,
+                          ),
+                        )
                       ],
                     ),
-                    const SizedBox(
-                      // width: 200,
-                      child: Text(
-                        'Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System,only being larger than Mercury. In the English language, Mars is named for the Roman god of war',
-                        style: TextStyle(color: Colors.white),
-                        textAlign: TextAlign.justify,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                    SizedBox(height: 10),
+                    Text(
+                      description,
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.justify,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
                     ),
-                    Row(
-                      children: [
-                        const SizedBox(
-                            // width: 200,
-                            ),
-                        TextButton(
-                            onPressed: () {},
-                            child: const Row(
-                              children: [
-                                Text(
-                                  'Details',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_outlined,
-                                  color: Colors.white,
-                                )
-                              ],
-                            )),
-                      ],
+                  ],
+                ),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: const Row(
+                  children: [
+                    Text(
+                      'Details',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_outlined,
+                      color: Colors.white,
                     )
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
